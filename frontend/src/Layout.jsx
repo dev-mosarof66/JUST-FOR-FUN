@@ -1,11 +1,16 @@
+import { lazy } from "react";
+import ThemeButton from "./components/ThemeButton";
+// import "./CSS/Layout.css";
+const Home = lazy(() => import("../src/pages/Home"));
 
-const Layout = ()=> {
-
+const Layout = () => {
   return (
-    <>
-     <p className="text-xl">Hello Mosarof</p>
-    </>
-  )
-}
+    <div className="bg-black w-full h-screen relative">
+      <Home />
+      {/* ThemeButton  */}
+      {/* <ThemeButton /> */}
+    </div>
+  );
+};
 
-export default Layout
+export default Layout;
