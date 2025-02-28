@@ -4,7 +4,7 @@ import { BsMoonStars } from "react-icons/bs";
 import { MdDeviceUnknown } from "react-icons/md";
 import Context from "../context/Context";
 function ThemeButton() {
-  const { showMenu, setMenuBar, Theme, setTheme } = useContext(Context);
+  // const { showMenu, setMenuBar, Theme, setTheme } = useContext(Context);
   return (
     <div className="text-white inline-flex absolute bottom-0 right-0">
       <Content />

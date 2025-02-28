@@ -5,7 +5,7 @@ const Home = lazy(() => import("../src/pages/Home"));
 
 const Layout = () => {
   return (
-    <div className="bg-black w-full h-screen relative">
+    <div className="bg-black w-full relative">
       <Home />
       {/* ThemeButton  */}
       {/* <ThemeButton /> */}
