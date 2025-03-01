@@ -4,12 +4,9 @@ import { IftaarTime, PrayerTable, SehriTime } from "./TimeTable";
 import Context from "../context/Context";
 
 const HomeContent = () => {
-  const { prayerTimes } = useContext(Context);
+  // const { prayerTimes } = useContext(Context);
   return (
     <main className=" w-[90%] md:w-[70%] mx-auto flex flex-col items-center space-y-16 md:space-y-20  text-white py-40">
-      <div>
-        <p>{prayerTimes.date}</p>
-      </div>
       <SehriTime />
       <SahriDowa />
       <IftaarTime />
