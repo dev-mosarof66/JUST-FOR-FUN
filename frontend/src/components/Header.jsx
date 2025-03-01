@@ -6,7 +6,7 @@ import Context from "../context/Context";
 const Header = () => {
   const { showMenu, setMenuBar } = useContext(Context);
   return (
-    <header className="bg-amber-900/70 fixed w-full backdrop-blur-sm">
+    <header className="bg-amber-900/70 fixed w-full backdrop-blur-sm z-30">
       <nav className="w-[90%] mx-auto py-2 px-5 flex items-center justify-between text-white">
         <ul className="flex items-center space-x-3">
           <img className="w-8" src={assets.Logo} />

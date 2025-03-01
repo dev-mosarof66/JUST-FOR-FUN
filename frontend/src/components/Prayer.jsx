@@ -6,7 +6,7 @@ const SahriDowa = () => {
     <div className="space-y-2 md:space-y-4 md:w-[85%]">
       <div className="w-full flex items-center justify-center">
         <h1 className="w-fit text-lg sm:text-xl font-semibold border-b border-b-amber-500 text-center">
-          রোজার রাখার দোয়া
+          রোজা রাখার দোয়া
         </h1>
       </div>
       <p className="w-full text-sm sm:text-base text-right pr-6 py-2 md:py-4 leading-8">
@@ -37,13 +37,23 @@ const IftaarDowa = () => {
           ইফতারের দোয়া
         </h1>
       </div>
-      <div className="relative">
-        <div onClick={()=>setShowIftaarDowa(!showIftaarDowa)}
-            className="px-2 py-2  text-2xl"
-            >
-          <IoMdArrowDropdown className={`${showIftaarDowa?"rotate-0":"-rotate-90"} text-xl`} />
+      <div>
+        <div className="px-2 py-2  text-2xl flex items-center space-x-3">
+          <IoMdArrowDropdown
+            onClick={() => setShowIftaarDowa(!showIftaarDowa)}
+            className={`${
+              showIftaarDowa ? "rotate-0" : "-rotate-90"
+            } text-xl cursor-pointer `}
+          />
+          <p
+            className={`text-sm sm:text-base ${
+              showIftaarDowa ? "hidden" : "block"
+            }`}
+          >
+            এই দোয়াটি ইফতার করার আগে পড়তে হয় ।
+          </p>
         </div>
-        <div className={`${showIftaarDowa?"block":"hidden"} `}>
+        <div className={`${showIftaarDowa ? "block" : "hidden"} `}>
           <p className="w-full text-sm sm:text-base px-1 md:px-0  text-right  md:pr-4 py-6 leading-8">
             اَللَّهُمَّ لَكَ صُمْتُ وَ عَلَى رِزْقِكَ وَ اَفْطَرْتُ بِرَحْمَتِكَ
             يَا اَرْحَمَ الرَّاحِيْمِيْن
