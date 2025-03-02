@@ -1,8 +1,8 @@
 import { useContext, useState, useEffect } from "react";
 import Context from "../context/Context";
+import { Link } from "react-router-dom";
 
 const SehriTime = () => {
-  const { prayerTimes } = useContext(Context);
   return (
     <div className="w-full md:w-[90%] flex flex-col items-center justify-center space-y-6">
       <div className="w-full flex flex-col items-center space-y-2">
@@ -12,51 +12,54 @@ const SehriTime = () => {
         <div className="w-full md:w-[30%] text-center flex flex-col items-center">
           <p className="w-[60%] bg-green-800 py-2 my-1">
             শেষ সময়ঃ
-            <span className="px-3 font-semibold">{prayerTimes.fajr}</span>
+            <span className="px-3 font-semibold">500</span>
           </p>
         </div>
-        <div className="w-full md:w-[80%] lg:w-[70%] py-2 flex items-center justify-end text-xs md:text-sm">
+        <Link
+          to="/full-calendar"
+          className="w-full md:w-[80%] lg:w-[70%] py-2 flex items-center justify-end text-xs md:text-sm"
+        >
           <button className="text-yellow-500 active:text-yellow-300 border-b active:border-b-amber-300 hover:text-yellow-300 hover:border-b-amber-300 transition duration-200 delay-75 cursor-pointer">
             সম্পূর্ণ ক্যালেন্ডার দেখুন
           </button>
-        </div>
+        </Link>
       </div>
     </div>
   );
 };
 
 const IftaarTime = () => {
-  const { prayerTimes } = useContext(Context);
-
   return (
     <div className="w-full md:w-[100%] flex flex-col items-center justify-center space-y-6">
-    <div className="w-full md:w-[90%] flex flex-col items-center justify-center space-y-6">
-      <div className="w-full flex flex-col items-center space-y-2">
-        <h1 className="w-full md:w-[30%] text-lg md:text-xl font-bold bg-amber-300 text-black text-center">
-          আজকের ইফতার
-        </h1>
-        <div className="w-full md:w-[30%] text-center flex flex-col items-center">
-          <p className="w-[60%] bg-green-800 py-2 my-1">
-             সময়ঃ
-            <span className="px-3 font-semibold">{prayerTimes.maghrib}</span>
-          </p>
-        </div>
-        <div className="w-full md:w-[80%] lg:w-[70%] py-2 flex items-center justify-end text-xs md:text-sm">
-          <button className="text-yellow-500 active:text-yellow-300 border-b active:border-b-amber-300 hover:text-yellow-300 hover:border-b-amber-300 transition duration-200 delay-75 cursor-pointer">
-            সম্পূর্ণ ক্যালেন্ডার দেখুন
-          </button>
+      <div className="w-full md:w-[90%] flex flex-col items-center justify-center space-y-6">
+        <div className="w-full flex flex-col items-center space-y-2">
+          <h1 className="w-full md:w-[30%] text-lg md:text-xl font-bold bg-amber-300 text-black text-center">
+            আজকের ইফতার
+          </h1>
+          <div className="w-full md:w-[30%] text-center flex flex-col items-center">
+            <p className="w-[60%] bg-green-800 py-2 my-1">
+              সময়ঃ
+              <span className="px-3 font-semibold">600</span>
+            </p>
+          </div>
+          <Link
+            to="/full-calendar"
+            className="w-full md:w-[80%] lg:w-[70%] py-2 flex items-center justify-end text-xs md:text-sm"
+          >
+            <button className="text-yellow-500 active:text-yellow-300 border-b active:border-b-amber-300 hover:text-yellow-300 hover:border-b-amber-300 transition duration-200 delay-75 cursor-pointer">
+              সম্পূর্ণ ক্যালেন্ডার দেখুন
+            </button>
+          </Link>
         </div>
       </div>
-    </div>
 
       {/* remaining time for iftaar goes here  */}
-      <CalcRemainingTime prayerTime={prayerTimes.maghrib} />
+      {/* <CalcRemainingTime prayerTime={prayerTimes.maghrib} /> */}
     </div>
   );
 };
 
 const PrayerTable = () => {
-  const { prayerTimes } = useContext(Context);
   return (
     <div className="w-[100%] text-center space-y-3">
       <div className="text-center w-full flex items-center justify-center">
@@ -68,23 +71,23 @@ const PrayerTable = () => {
         <div className="w-[90%] sm:w-[60%] lg:w-[50%] flex items-center justify-around py-2 bg-blue-400 text-center font-semibold text-black">
           <ul>
             <li className="py-1 text-yellow-300 font-bold sm:pb-5">ফজর</li>
-            <p>{prayerTimes.fajr}</p>
+            <p>600</p>
           </ul>
           <ul>
             <li className="py-1 text-yellow-300 font-bold sm:pb-5">যোহর</li>
-            <p>{prayerTimes.dhuhr}</p>
+            <p>700</p>
           </ul>
           <ul>
             <li className="py-1 text-yellow-300 font-bold sm:pb-5">আসর</li>
-            <p>{prayerTimes.asr}</p>
+            <p>1245</p>
           </ul>
           <ul>
             <li className="py-1 text-yellow-300 font-bold sm:pb-5">মাগরিব</li>
-            <p>{prayerTimes.maghrib}</p>
+            <p>265</p>
           </ul>
           <ul>
             <li className="py-1 text-yellow-300 font-bold sm:pb-5">এশা</li>
-            <p>{prayerTimes.isha}</p>
+            <p>55</p>
           </ul>
         </div>
       </div>
