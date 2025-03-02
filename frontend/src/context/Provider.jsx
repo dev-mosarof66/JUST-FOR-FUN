@@ -10,11 +10,11 @@ const Provider = ({ children }) => {
   const [prayerTimes, setPrayerTimes] = useState([]);
   const [location, setLocation] = useState(null);
   const [error, setError] = useState(null);
+  const [fullCalendar, setFullCalendar] = useState(null); //will receive an array with 30 days
 
-  // fetch data from api
+  // send data to api
   const sendData = async () => {
     if (!location) return;
-
     try {
       const res = await axios.post("/api/prayer", {
         latitude: location.latitude,
@@ -27,10 +27,22 @@ const Provider = ({ children }) => {
     }
   };
 
+  // fetch data from api
+
   const fetchData = async () => {
     try {
       const response = await axios.get("/api/prayer");
       setPrayerTimes(response.data);
+    } catch (error) {
+      console.error("Error fetching prayer times:", error);
+    }
+  };
+
+  //fetch full data of 1 to 30 ramadan
+  const fetchCompleteData = async () => {
+    try {
+      const response = await axios.get("/api/getfullcalendar");
+      setFullCalendar(response.data);
     } catch (error) {
       console.error("Error fetching prayer times:", error);
     }
@@ -44,7 +56,8 @@ const Provider = ({ children }) => {
     } else {
       console.log("error while sending data");
     }
-  }, [location, locationRes]);
+    fetchCompleteData()
+  }, [location, locationRes, setLocation,fullCalendar]);
 
   return (
     <Context.Provider
@@ -60,6 +73,7 @@ const Provider = ({ children }) => {
         setLocation,
         error,
         setError,
+        fullCalendar
       }}
     >
       {children}
