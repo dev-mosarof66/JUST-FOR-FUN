@@ -24,7 +24,7 @@ app.post("/api/prayer", (req, res) => {
     latitude,
     longitude,
   };
-  res.send(true);
+  res.send("OK");
 });
 
 app.get("/api/prayer", (req, res) => {
@@ -32,6 +32,8 @@ app.get("/api/prayer", (req, res) => {
   
   const coordinates = new Coordinates(location.latitude, location.longitude);
   const date = new Date();
+  console.log(date.getMonth());
+  
   const params = CalculationMethod.MuslimWorldLeague();
   const prayerTimes = new PrayerTimes(coordinates, date, params);
 
@@ -59,6 +61,14 @@ app.get("/api/prayer", (req, res) => {
     }),
   });
 });
+
+app.get("/api/getfullcalendar",(req,res)=>{
+  let fullCalendar = [];
+
+
+
+
+})
 
 app.listen(port, () => {
   console.log(`App listening at http://localhost:${port}`);
